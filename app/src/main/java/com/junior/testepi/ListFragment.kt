@@ -46,11 +46,11 @@ class ListFragment : Fragment() {
 
         }
         binding.floatingPhoto.setOnClickListener{
-            Toast.makeText(requireContext(), "Post clicado", Toast.LENGTH_LONG).show()
+//            Toast.makeText(requireContext(), "Post clicado", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_listFragment_to_formFragment)
         }
         binding.floatingUser.setOnClickListener{
-            Toast.makeText(requireContext(), "User clicado", Toast.LENGTH_LONG).show()
+//            Toast.makeText(requireContext(), "User clicado", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_listFragment_to_profileFragment)
         }
         return binding.root

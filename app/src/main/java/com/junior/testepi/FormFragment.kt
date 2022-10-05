@@ -23,9 +23,6 @@ class FormFragment : Fragment() {
     private val mainViewModel: MainViewModel by activityViewModels()
     private var temaSelecionado = 0L
 
-
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
