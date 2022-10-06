@@ -18,9 +18,9 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(private val repository: Repository)
     : ViewModel() {
 
-    private val _myCategoriaResponse = MutableLiveData<Response<List<Tema>>>()
+    private val _myTemaResponse = MutableLiveData<Response<List<Tema>>>()
 
-    val myCategoriaResponse: LiveData<Response<List<Tema>>> = _myCategoriaResponse
+    val myTemaResponse: LiveData<Response<List<Tema>>> = _myTemaResponse
 
 //
 //    init {
@@ -32,7 +32,7 @@ class MainViewModel @Inject constructor(private val repository: Repository)
 
             try {
                 val response = repository.listTema()
-                _myCategoriaResponse.value = response
+                _myTemaResponse.value = response
             }catch (e: Exception){
                 Log.d("Erro:/", e.message.toString())
             }

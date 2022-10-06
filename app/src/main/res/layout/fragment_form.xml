@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:helperText="Link da imagem é requerido."
-            app:helperTextTextColor="@color/black"
+            app:helperTextTextColor="#6A1B9A"
             app:layout_constraintEnd_toEndOf="@+id/view3"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/view3"
@@ -85,16 +85,13 @@
 
         <Spinner
             android:id="@+id/spinnerTema"
-            android:layout_width="161dp"
-            android:layout_height="51dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="16dp"
             android:entries="@array/tema"
             android:minHeight="48dp"
             android:spinnerMode="dropdown"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/view3"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
             app:layout_constraintVertical_bias="0.44" />
@@ -109,7 +106,7 @@
             android:visibility="visible"
             app:endIconMode="clear_text"
             app:helperText="Link da imagem é requerido."
-            app:helperTextTextColor="@color/black"
+            app:helperTextTextColor="#6A1B9A"
             app:layout_constraintEnd_toEndOf="@+id/view3"
             app:layout_constraintStart_toStartOf="@+id/view3"
             app:layout_constraintTop_toTopOf="@+id/view3">

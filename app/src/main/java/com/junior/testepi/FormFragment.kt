@@ -23,9 +23,6 @@ class FormFragment : Fragment() {
     private val mainViewModel: MainViewModel by activityViewModels()
     private var temaSelecionado = 0L
 
-
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,7 +30,7 @@ class FormFragment : Fragment() {
         binding = FragmentFormBinding.inflate(layoutInflater, container, false)
 
         mainViewModel.listTema()
-        mainViewModel.myCategoriaResponse.observe(viewLifecycleOwner){
+        mainViewModel.myTemaResponse.observe(viewLifecycleOwner){
             response -> Log.d("requisicao", response.body().toString())
             spinnerTema(response.body())
         }
@@ -80,7 +77,7 @@ class FormFragment : Fragment() {
     private fun inserirNoBanco(){
         val image = binding.imgLink.text.toString()
         val desc = binding.textLegenda.text.toString()
-        val tema = Tema(temaSelecionado, null)
+        val tema = Tema(temaSelecionado, null, null)
 
         if(validarCampos( desc, image)){
             val postagem = Postagem(0, image, desc, tema)
