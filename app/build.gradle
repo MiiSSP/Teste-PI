@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.junior.testepi"
-        minSdk 23
+        minSdk 26
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -69,5 +69,5 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
 
 
-    implementation 'androidx.core:core-splashscreen:1.0.0-alpha02'
+    implementation 'androidx.core:core-splashscreen:2.4.0-beta02'
 }

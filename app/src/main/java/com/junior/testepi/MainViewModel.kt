@@ -11,6 +11,7 @@ import com.junior.testepi.model.Tema
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
+import java.time.LocalDate
 import javax.inject.Inject
 
 
@@ -21,8 +22,8 @@ class MainViewModel @Inject constructor(private val repository: Repository)
     private val _myTemaResponse = MutableLiveData<Response<List<Tema>>>()
 
     val myTemaResponse: LiveData<Response<List<Tema>>> = _myTemaResponse
+    val dataSelecionada = MutableLiveData<LocalDate>()
 
-//
 //    init {
 //        listTema()
 //    }

@@ -7,91 +7,87 @@
     android:background="#001219"
     tools:context=".CadastroActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/InputNome"
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputEditText3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/custom_input"
+        android:drawableEnd="@drawable/ic_name"
+        android:hint="Digite seu nome:"
+        android:maxHeight="50dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColor="#FFFFFF"
         android:textColorHint="#6C6A6A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="32dp">
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#001219"
-            android:hint="Digite seu nome:"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#6C6A6A" />
-    </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/InputDataNasc"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textDate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="#001219"
-        android:backgroundTint="#D4EAF3"
-        android:textColorHint="#6C6A6A"
-        app:layout_constraintEnd_toEndOf="@+id/InputNome"
-        app:layout_constraintStart_toStartOf="@+id/InputNome"
-        app:layout_constraintTop_toBottomOf="@+id/InputNome">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#001219"
-            android:hint="Data de nascimento:"
-            android:textColor="#FFFFFF" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/InputEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="#D4EAF3"
-        android:backgroundTint="#D4EAF3"
-        android:textColorHint="#6C6A6A"
-        app:layout_constraintEnd_toEndOf="@+id/InputDataNasc"
-        app:layout_constraintStart_toStartOf="@+id/InputDataNasc"
-        app:layout_constraintTop_toBottomOf="@+id/InputDataNasc">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#001219"
-            android:hint="Digite seu email:"
-            android:textColor="#FBFBFB" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/InputSenha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:background="#001219"
-        android:backgroundTint="#D4EAF3"
+        android:background="@drawable/custom_input"
+        android:drawableEnd="@drawable/ic_calendar"
+        android:hint="Data de nascimento:"
+        android:maxHeight="50dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColor="#FFFFFF"
         android:textColorHint="#6C6A6A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+        app:layout_constraintTop_toBottomOf="@+id/textInputEditText3"
+        />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#001219"
-            android:hint="Digite uma senha:"
-            android:textColor="#FFFFFF" />
-    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputEditText4"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/custom_input"
+        android:drawableEnd="@drawable/ic_mail"
+        android:hint="Digite seu email:"
+        android:maxHeight="50dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColor="#FBFBFB"
+        android:textColorHint="#6C6A6A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDate" />
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputEditText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/custom_input"
+        android:drawableEnd="@drawable/ic_password"
+        android:hint="Digite uma senha:"
+        android:maxHeight="50dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#6C6A6A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <Button
         android:id="@+id/btnPronto"
@@ -100,19 +96,23 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
+        android:backgroundTint="#26AAE6 "
         android:text="Pronto"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InputSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
 
     <Button
         android:id="@+id/btnVoltar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
+        android:backgroundTint="#26AAE6 "
         android:text="Voltar"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPronto" />
@@ -121,8 +121,9 @@
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:orientation="horizontal"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3">
@@ -158,12 +159,23 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="Gênero:"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InputEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputEditText4" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="129dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
