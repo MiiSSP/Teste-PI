@@ -22,6 +22,7 @@ class FormFragment : Fragment() {
     private lateinit var binding: FragmentFormBinding
     private val mainViewModel: MainViewModel by activityViewModels()
     private var temaSelecionado = 0L
+    private var postagemSelecionada: Postagem? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,12 +30,12 @@ class FormFragment : Fragment() {
     ): View? {
         binding = FragmentFormBinding.inflate(layoutInflater, container, false)
 
+        carregarDados()
         mainViewModel.listTema()
         mainViewModel.myTemaResponse.observe(viewLifecycleOwner){
-            response -> Log.d("requisicao", response.body().toString())
+                response -> Log.d("requisicao", response.body().toString())
             spinnerTema(response.body())
         }
-
         binding.buttonPostar.setOnClickListener{
             inserirNoBanco()
         }
@@ -86,6 +87,16 @@ class FormFragment : Fragment() {
             findNavController().navigate(R.id.action_formFragment_to_listFragment)
         }else{
             Toast.makeText(context, "Verique os campos 😢😶‍🌫️🤯", Toast.LENGTH_LONG).show()
+        }
+    }
+
+
+    private fun carregarDados(){
+        postagemSelecionada = mainViewModel.postagemSelecionada
+        if (postagemSelecionada != null){
+            binding.imgLink.setText(postagemSelecionada?.imagem)
+            binding.textLegenda.setText(postagemSelecionada?.descricao)
+            binding.spinnerTema.onItemSelectedListener.apply { postagemSelecionada}
         }
     }
 

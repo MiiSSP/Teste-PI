@@ -39,4 +39,26 @@
             app:popUpTo="@id/listFragment"
             app:popUpToInclusive="false" />
     </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.junior.testepi.LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_cadFragment"
+            app:destination="@id/cadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cadFragment"
+        android:name="com.junior.testepi.CadFragment"
+        tools:layout="@layout/fragment_cad">
+        <action
+            android:id="@+id/action_cadFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_cadFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

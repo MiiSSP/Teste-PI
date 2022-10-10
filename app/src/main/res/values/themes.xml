@@ -13,7 +13,9 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-
+    <style name="Spinner" parent="Widget.AppCompat.Light.DropDownItem.Spinner">
+        <item name="android:textColor">#26AAE6</item>
+    </style>
     <style name="SplashScreenTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue</item>

@@ -3,10 +3,14 @@ package com.junior.testepi.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.junior.testepi.ListFragment
+import com.junior.testepi.MainViewModel
 import com.junior.testepi.databinding.CardLayoutBinding
 import com.junior.testepi.model.Postagem
 
-class PostagemAdapter: RecyclerView.Adapter<PostagemAdapter.PostagemViewHolder>() {
+class PostagemAdapter(
+    val postagemClickListener: PostagemClickListener,
+    val mainViewModel: MainViewModel): RecyclerView.Adapter<PostagemAdapter.PostagemViewHolder>() {
 
     private  var listPostagem = emptyList<Postagem>()
 
