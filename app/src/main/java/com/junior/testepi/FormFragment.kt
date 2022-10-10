@@ -82,8 +82,18 @@ class FormFragment : Fragment() {
 
         if(validarCampos( desc, image)){
             val postagem = Postagem(0, image, desc, tema)
-            mainViewModel.addPost(postagem)
-            Toast.makeText(context, "Tarefa criada 😎🍭💅", Toast.LENGTH_LONG).show()
+            var salvar = ""
+            if (postagemSelecionada != null){
+                salvar = "tarefa atualizada"
+                val postagem = Postagem( postagemSelecionada?.id!! ,image, desc,tema )
+                mainViewModel.upDatePostagem(postagem)
+                Toast.makeText(context, salvar, Toast.LENGTH_LONG).show()
+            }else{
+                salvar = "tarefa criada"
+                val postagem = Postagem( postagemSelecionada?.id!! ,image, desc,tema )
+                mainViewModel.addPost(postagem)
+                Toast.makeText(context, salvar, Toast.LENGTH_LONG).show()
+            }
             findNavController().navigate(R.id.action_formFragment_to_listFragment)
         }else{
             Toast.makeText(context, "Verique os campos 😢😶‍🌫️🤯", Toast.LENGTH_LONG).show()

@@ -32,8 +32,9 @@ class ListFragment : Fragment(), PostagemClickListener {
         // Inflate the layout for this fragment
         binding = FragmentListBinding.inflate(layoutInflater, container, false)
 
-
+        mainViewModel.listPostagem()
         //Configuração do recycleView
+
         val adapter = PostagemAdapter(this, mainViewModel)
         binding.recyclerPostagem.layoutManager = LinearLayoutManager(context)
         binding.recyclerPostagem.adapter = adapter
@@ -44,13 +45,20 @@ class ListFragment : Fragment(), PostagemClickListener {
 
         }
         binding.floatingPhoto.setOnClickListener{
-//            Toast.makeText(requireContext(), "Post clicado", Toast.LENGTH_LONG).show()
+         mainViewModel.postagemSelecionada = null
             findNavController().navigate(R.id.action_listFragment_to_formFragment)
         }
         binding.floatingUser.setOnClickListener{
 //            Toast.makeText(requireContext(), "User clicado", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_listFragment_to_profileFragment)
         }
+
+        mainViewModel.myPostagemResponse.observe(viewLifecycleOwner){
+                response -> if(response.body() != null){
+            adapter.setList(response.body()!!)
+        }
+        }
+
         return binding.root
 
     }

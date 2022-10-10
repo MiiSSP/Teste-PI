@@ -18,17 +18,24 @@ class MainViewModel @Inject constructor(private val repository: Repository)
     : ViewModel() {
     var postagemSelecionada: Postagem? = null
     private val _myTemaResponse = MutableLiveData<Response<List<Tema>>>()
-    private val _userResponse = MutableLiveData<Response<List<Usuario>>>()
     val myTemaResponse: LiveData<Response<List<Tema>>> = _myTemaResponse
-    val userResponse: LiveData<Response<List<Usuario>>> = _userResponse
-    val dataSelecionada = MutableLiveData<LocalDate>()
+    private val _myPostagemResponse = MutableLiveData<Response<List<Postagem>>>()
+    val myPostagemResponse: LiveData<Response<List<Postagem>>> = _myPostagemResponse
 
 //    init {
 //        listTema()
 //    }
 
-
-
+    fun listPostagem(){
+        viewModelScope.launch {
+            try {
+                val response = repository.listPostagem()
+                _myPostagemResponse.value= response
+            }catch (e: Exception){
+                Log.d("Erro:/", e.message.toString())
+            }
+        }
+    }
     fun listTema(){
         viewModelScope.launch {
 
@@ -44,7 +51,7 @@ class MainViewModel @Inject constructor(private val repository: Repository)
     fun addPost(postagem: Postagem){
         viewModelScope.launch {
             try {
-                val response = repository.addPost(postagem)
+                repository.addPost(postagem)
                 Log.d("jsaid", "jodasjod")
 
             }catch (e: Exception){
@@ -56,7 +63,7 @@ class MainViewModel @Inject constructor(private val repository: Repository)
         viewModelScope.launch {
             try {
               repository.upDatePostagem(postagem)
-                Log.d("jsaid", "jodasjod")
+                Log.d("Update", "123")
             }catch (e: Exception){
                 Log.d("Erro:/", e.message.toString())
             }

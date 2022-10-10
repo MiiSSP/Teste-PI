@@ -34,6 +34,10 @@ class PostagemAdapter(
         holder.binding.textDescricao.text = postagem.descricao
 //        holder.binding.textData.text = postagem.data
         holder.binding.textTema.text = postagem.tema.nome
+
+        holder.itemView.setOnClickListener{
+            postagemClickListener.onPostagemClickListener(postagem)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -41,7 +45,7 @@ class PostagemAdapter(
     }
 
     fun setList(list: List<Postagem>){
-        listPostagem = list
+        listPostagem = list.sortedByDescending { it.id }
         notifyDataSetChanged()
     }
 }
