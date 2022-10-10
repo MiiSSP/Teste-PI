@@ -3,10 +3,14 @@ package com.junior.testepi.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.junior.testepi.ListFragment
+import com.junior.testepi.MainViewModel
 import com.junior.testepi.databinding.CardLayoutBinding
 import com.junior.testepi.model.Postagem
 
-class PostagemAdapter: RecyclerView.Adapter<PostagemAdapter.PostagemViewHolder>() {
+class PostagemAdapter(
+    val postagemClickListener: PostagemClickListener,
+    val mainViewModel: MainViewModel): RecyclerView.Adapter<PostagemAdapter.PostagemViewHolder>() {
 
     private  var listPostagem = emptyList<Postagem>()
 
@@ -30,6 +34,10 @@ class PostagemAdapter: RecyclerView.Adapter<PostagemAdapter.PostagemViewHolder>(
         holder.binding.textDescricao.text = postagem.descricao
 //        holder.binding.textData.text = postagem.data
         holder.binding.textTema.text = postagem.tema.nome
+
+        holder.itemView.setOnClickListener{
+            postagemClickListener.onPostagemClickListener(postagem)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -37,7 +45,7 @@ class PostagemAdapter: RecyclerView.Adapter<PostagemAdapter.PostagemViewHolder>(
     }
 
     fun setList(list: List<Postagem>){
-        listPostagem = list
+        listPostagem = list.sortedByDescending { it.id }
         notifyDataSetChanged()
     }
 }

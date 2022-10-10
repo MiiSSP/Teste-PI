@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.junior.testepi"
-        minSdk 23
+        minSdk 26
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -69,5 +69,21 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
 
 
-    implementation 'androidx.core:core-splashscreen:1.0.0-alpha02'
+
+    // Room components
+    implementation "androidx.room:room-runtime:2.4.3"
+    kapt "androidx.room:room-compiler:2.4.3"
+    implementation "androidx.room:room-ktx:2.4.3"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    androidTestImplementation "androidx.room:room-testing:2.4.3"
+
+    // Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+
+    // Kotlin components
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
 }
+

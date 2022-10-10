@@ -7,21 +7,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.junior.testepi.adapter.PostagemAdapter
+import com.junior.testepi.adapter.PostagemClickListener
 import com.junior.testepi.databinding.FragmentListBinding
+import com.junior.testepi.model.Postagem
 
-class ListFragment : Fragment() {
+class ListFragment : Fragment(), PostagemClickListener {
 
     private lateinit var binding: FragmentListBinding
+    private val mainViewModel: MainViewModel by activityViewModels()
     private val rotateOpen: Animation by lazy { AnimationUtils.loadAnimation(requireContext(),R.anim.rotate_open_anim)}
     private val rotateClose: Animation by lazy { AnimationUtils.loadAnimation(requireContext(),R.anim.rotate_close_anim)}
     private val fromBottom: Animation by lazy { AnimationUtils.loadAnimation(requireContext(),R.anim.from_bottom_anim)}
     private val toBottom: Animation by lazy { AnimationUtils.loadAnimation(requireContext(),R.anim.to_bottom_anim)}
     private var clicked = false
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,29 +32,33 @@ class ListFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentListBinding.inflate(layoutInflater, container, false)
 
-
+        mainViewModel.listPostagem()
         //Configuração do recycleView
-        val adapter = PostagemAdapter()
+
+        val adapter = PostagemAdapter(this, mainViewModel)
         binding.recyclerPostagem.layoutManager = LinearLayoutManager(context)
         binding.recyclerPostagem.adapter = adapter
         binding.recyclerPostagem.setHasFixedSize(true)
 
-//        binding.floatingAdd.setOnClickListener{
-//
-//
-//        }
         binding.floatingAdd.setOnClickListener{
             onAddButtonClick()
 
         }
         binding.floatingPhoto.setOnClickListener{
-//            Toast.makeText(requireContext(), "Post clicado", Toast.LENGTH_LONG).show()
+         mainViewModel.postagemSelecionada = null
             findNavController().navigate(R.id.action_listFragment_to_formFragment)
         }
         binding.floatingUser.setOnClickListener{
 //            Toast.makeText(requireContext(), "User clicado", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_listFragment_to_profileFragment)
         }
+
+        mainViewModel.myPostagemResponse.observe(viewLifecycleOwner){
+                response -> if(response.body() != null){
+            adapter.setList(response.body()!!)
+        }
+        }
+
         return binding.root
 
     }
@@ -81,6 +87,10 @@ class ListFragment : Fragment() {
             binding.floatingAdd.startAnimation(rotateClose)
         }
 
+    }
+    override fun onPostagemClickListener(postagem: Postagem) {
+        mainViewModel.postagemSelecionada = postagem
+        findNavController().navigate(R.id.action_listFragment_to_formFragment)
     }
 
 }

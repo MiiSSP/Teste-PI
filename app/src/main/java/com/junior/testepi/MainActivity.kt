@@ -27,7 +27,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
-    private lateinit var appBarConfiguration: AppBarConfiguration
+//    private lateinit var appBarConfiguration: AppBarConfiguration
 //    private lateinit var drawerLayout: DrawerLayout
     private lateinit var navHostFragment: NavHostFragment
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,20 +36,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         Toast.makeText(this,"Bem vindo", Toast.LENGTH_LONG).show()
-        setSupportActionBar(findViewById(R.id.toolbar))
+//        setSupportActionBar(findViewById(R.id.toolbar))
         navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView)
                 as NavHostFragment
         navController = navHostFragment.findNavController()
 //        drawerLayout = findViewById(R.id.drawer_layout)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-
-        setupActionBarWithNavController(navController, appBarConfiguration)
+//        appBarConfiguration = AppBarConfiguration(navController.graph)
+//
+//        setupActionBarWithNavController(navController, appBarConfiguration)
 
 
     }
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp(appBarConfiguration) || return super.onSupportNavigateUp()
-    }
+//    override fun onSupportNavigateUp(): Boolean {
+//        return navController.navigateUp(appBarConfiguration) || return super.onSupportNavigateUp()
+//    }
 
 
 }
