@@ -58,8 +58,9 @@
             android:padding="50dp"
             android:textSize="60sp"
             android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textDescricao"
-            tools:layout_editor_absoluteX="0dp"
             tools:text="IMAGEM" />
 
         <TextView
@@ -112,15 +113,15 @@
             android:layout_margin="10dp"
             android:layout_marginEnd="919dp"
             android:contentDescription="@string/foto"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/textImage"
             app:layout_constraintEnd_toEndOf="@+id/textImage"
             app:layout_constraintStart_toStartOf="@+id/textImage"
             app:layout_constraintTop_toBottomOf="@+id/textDescricao"
             app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/fototeste"
-            tools:ignore="ImageContrastCheck" />
+            tools:ignore="ImageContrastCheck"
+            tools:srcCompat="@drawable/ic_load" />
 
         <TextView
             android:id="@+id/textInfoDataPostagem"

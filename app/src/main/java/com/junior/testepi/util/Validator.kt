@@ -17,5 +17,4 @@ object Validator {
         return !(nome.isEmpty() || nome.isBlank())
     }
 
-
 }

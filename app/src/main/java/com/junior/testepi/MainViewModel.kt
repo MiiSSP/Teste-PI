@@ -38,7 +38,6 @@ class MainViewModel @Inject constructor(private val repository: Repository)
     }
     fun listTema(){
         viewModelScope.launch {
-
             try {
                 val response = repository.listTema()
                 _myTemaResponse.value = response
@@ -53,7 +52,7 @@ class MainViewModel @Inject constructor(private val repository: Repository)
             try {
                 repository.addPost(postagem)
                 Log.d("jsaid", "jodasjod")
-
+                listPostagem()
             }catch (e: Exception){
                 Log.d("Erro:/", e.message.toString())
             }
@@ -64,6 +63,18 @@ class MainViewModel @Inject constructor(private val repository: Repository)
             try {
               repository.upDatePostagem(postagem)
                 Log.d("Update", "123")
+                listPostagem()
+            }catch (e: Exception){
+                Log.d("Erro:/", e.message.toString())
+            }
+        }
+    }
+
+    fun deletarPostagem(id: Long){
+        viewModelScope.launch {
+            try {
+                repository.deletarPostagem(id)
+                listPostagem()
             }catch (e: Exception){
                 Log.d("Erro:/", e.message.toString())
             }

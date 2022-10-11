@@ -8,5 +8,6 @@ class Usuario(
     val id: Long,
     val email: String,
     val senha: String,
+//    val postagem: List<Postagem>
 ) {
 }

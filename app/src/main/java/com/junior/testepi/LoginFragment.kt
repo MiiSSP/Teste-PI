@@ -1,17 +1,21 @@
 package com.junior.testepi
 
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.junior.testepi.databinding.FragmentCadBinding
 import com.junior.testepi.databinding.FragmentLoginBinding
 import com.junior.testepi.util.Validator
 
 class LoginFragment : Fragment() {
+
+
     private lateinit var binding: FragmentLoginBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
