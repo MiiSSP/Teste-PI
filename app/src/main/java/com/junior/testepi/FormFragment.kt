@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.junior.testepi.databinding.FragmentFormBinding
 import com.junior.testepi.model.Postagem
 import com.junior.testepi.model.Tema
@@ -53,6 +54,15 @@ class FormFragment : Fragment() {
                     listTema
                 )
 
+            binding.btnPreview.setOnClickListener{
+                val link = binding.imgLink.text.toString()
+                Glide
+                    .with(this)
+                    .load(link)
+                    .placeholder(R.drawable.ic_load)
+                    .into(binding.imgPreview)
+            }
+
             binding.spinnerTema.onItemSelectedListener =
                 object : AdapterView.OnItemSelectedListener{
                     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
@@ -81,7 +91,6 @@ class FormFragment : Fragment() {
         val tema = Tema(temaSelecionado, null, null)
 
         if(validarCampos( desc, image)){
-            val postagem = Postagem(0, image, desc, tema)
             var salvar = ""
             if (postagemSelecionada != null){
                 salvar = "tarefa atualizada"
@@ -90,7 +99,7 @@ class FormFragment : Fragment() {
                 Toast.makeText(context, salvar, Toast.LENGTH_LONG).show()
             }else{
                 salvar = "tarefa criada"
-                val postagem = Postagem( postagemSelecionada?.id!! ,image, desc,tema )
+                val postagem = Postagem( 0 ,image, desc,tema )
                 mainViewModel.addPost(postagem)
                 Toast.makeText(context, salvar, Toast.LENGTH_LONG).show()
             }
@@ -99,8 +108,6 @@ class FormFragment : Fragment() {
             Toast.makeText(context, "Verique os campos 😢😶‍🌫️🤯", Toast.LENGTH_LONG).show()
         }
     }
-
-
     private fun carregarDados(){
         postagemSelecionada = mainViewModel.postagemSelecionada
         if (postagemSelecionada != null){
@@ -109,6 +116,4 @@ class FormFragment : Fragment() {
             binding.spinnerTema.onItemSelectedListener.apply { postagemSelecionada}
         }
     }
-
-
 }

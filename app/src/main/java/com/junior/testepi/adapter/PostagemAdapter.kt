@@ -1,14 +1,19 @@
 package com.junior.testepi.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.junior.testepi.ListFragment
 import com.junior.testepi.MainViewModel
+import com.junior.testepi.R
 import com.junior.testepi.databinding.CardLayoutBinding
 import com.junior.testepi.model.Postagem
 
 class PostagemAdapter(
+    val context: Context,
     val postagemClickListener: PostagemClickListener,
     val mainViewModel: MainViewModel): RecyclerView.Adapter<PostagemAdapter.PostagemViewHolder>() {
 
@@ -34,7 +39,11 @@ class PostagemAdapter(
         holder.binding.textDescricao.text = postagem.descricao
 //        holder.binding.textData.text = postagem.data
         holder.binding.textTema.text = postagem.tema.nome
-
+        Glide
+            .with(context)
+            .load(postagem.imagem)
+            .placeholder(R.drawable.ic_load)
+            .into(holder.binding.imageView4)
         holder.itemView.setOnClickListener{
             postagemClickListener.onPostagemClickListener(postagem)
         }

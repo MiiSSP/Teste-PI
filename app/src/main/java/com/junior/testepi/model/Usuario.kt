@@ -2,11 +2,13 @@ package com.junior.testepi.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 
 
-class Usuario(
-    val id: Long,
-    val email: String,
-    val senha: String,
+data class Usuario(
+     val id: Long,
+     val email: String,
+     val senha: String,
+//    val postagem: List<Postagem>
 ) {
 }
