@@ -108,8 +108,6 @@ class FormFragment : Fragment() {
             Toast.makeText(context, "Verique os campos 😢😶‍🌫️🤯", Toast.LENGTH_LONG).show()
         }
     }
-
-
     private fun carregarDados(){
         postagemSelecionada = mainViewModel.postagemSelecionada
         if (postagemSelecionada != null){
@@ -118,6 +116,4 @@ class FormFragment : Fragment() {
             binding.spinnerTema.onItemSelectedListener.apply { postagemSelecionada}
         }
     }
-
-
 }

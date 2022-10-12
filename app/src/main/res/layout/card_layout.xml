@@ -64,21 +64,6 @@
             tools:text="IMAGEM" />
 
         <TextView
-            android:id="@+id/textData"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="@+id/viewProfileInform"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textInfoDataPostagem"
-            app:layout_constraintTop_toTopOf="@+id/viewProfileInform"
-            app:layout_constraintVertical_bias="1.0"
-            tools:text="Data" />
-
-        <TextView
             android:id="@+id/textTema"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -113,7 +98,7 @@
             android:layout_margin="10dp"
             android:layout_marginEnd="919dp"
             android:contentDescription="@string/foto"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/textImage"
             app:layout_constraintEnd_toEndOf="@+id/textImage"
@@ -121,17 +106,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textDescricao"
             app:layout_constraintVertical_bias="1.0"
             tools:ignore="ImageContrastCheck"
-            tools:srcCompat="@drawable/ic_load" />
-
-        <TextView
-            android:id="@+id/textInfoDataPostagem"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/DataPost"
-            app:layout_constraintBottom_toBottomOf="@+id/textData"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textData" />
+            tools:srcCompat="@android:drawable/ic_menu_report_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
