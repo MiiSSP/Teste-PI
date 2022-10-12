@@ -34,10 +34,8 @@ class PostagemAdapter(
     override fun onBindViewHolder(holder: PostagemViewHolder, position: Int) {
         val postagem = listPostagem[position]
 
-//        holder.binding.textNome.text = postagem.nome
         holder.binding.textImage.text = postagem.imagem
         holder.binding.textDescricao.text = postagem.descricao
-//        holder.binding.textData.text = postagem.data
         holder.binding.textTema.text = postagem.tema.nome
         Glide
             .with(context)

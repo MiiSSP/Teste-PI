@@ -1,5 +1,6 @@
 package com.junior.testepi
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -42,14 +43,12 @@ class ListFragment : Fragment(), PostagemClickListener {
 
         binding.floatingAdd.setOnClickListener{
             onAddButtonClick()
-
         }
         binding.floatingPhoto.setOnClickListener{
          mainViewModel.postagemSelecionada = null
             findNavController().navigate(R.id.action_listFragment_to_formFragment)
         }
         binding.floatingUser.setOnClickListener{
-//            Toast.makeText(requireContext(), "User clicado", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_listFragment_to_profileFragment)
         }
 
@@ -88,6 +87,7 @@ class ListFragment : Fragment(), PostagemClickListener {
         }
 
     }
+
     override fun onPostagemClickListener(postagem: Postagem) {
         mainViewModel.postagemSelecionada = postagem
         findNavController().navigate(R.id.action_listFragment_to_formFragment)

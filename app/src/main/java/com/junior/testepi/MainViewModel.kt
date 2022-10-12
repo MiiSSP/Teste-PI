@@ -1,6 +1,8 @@
 package com.junior.testepi
 
+import android.content.Intent
 import android.util.Log
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.*
 import com.junior.testepi.api.Repository
 import com.junior.testepi.model.Cadastro
@@ -17,14 +19,13 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(private val repository: Repository)
     : ViewModel() {
     var postagemSelecionada: Postagem? = null
-    var usuarioSelecionado: Cadastro? = null
     private val _myTemaResponse = MutableLiveData<Response<List<Tema>>>()
     val myTemaResponse: LiveData<Response<List<Tema>>> = _myTemaResponse
     private val _myPostagemResponse = MutableLiveData<Response<List<Postagem>>>()
     val myPostagemResponse: LiveData<Response<List<Postagem>>> = _myPostagemResponse
 
-    private val _myUserResponse = MutableLiveData<Response<List<Usuario>>>()
-    val myUserResponse: LiveData<Response<List<Usuario>>> = _myUserResponse
+    private val _myUserResponse = MutableLiveData<Response<List<Cadastro>>>()
+    val myUserResponse: LiveData<Response<List<Cadastro>>> = _myUserResponse
 
 //    init {
 //        listTema()

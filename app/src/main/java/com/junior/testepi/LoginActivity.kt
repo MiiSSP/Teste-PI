@@ -3,25 +3,31 @@ package com.junior.testepi
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
 import com.junior.testepi.databinding.ActivityLoginBinding
 import com.junior.testepi.model.Cadastro
 import com.junior.testepi.util.Validator
 import dagger.hilt.android.AndroidEntryPoint
+import retrofit2.Response
 
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
-    private var usuarioSelecionado: Cadastro? = null
     private lateinit var binding: ActivityLoginBinding
     private lateinit var mainViewModel: MainViewModel
+    private var listCadastros = arrayListOf<ArrayList<String>>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
         setContentView(binding.root)
-        carregarDados()
+
+
         binding.btnLogin.setOnClickListener {
             if (!Validator.validarEmail(binding.verEmail.text.toString())) {
                 binding.verEmail.error = "Preencha com o email de acesso"
@@ -33,32 +39,53 @@ class LoginActivity : AppCompatActivity() {
             }
 
             validarLogin()
+
         }
+        binding.buttonLoginGoogle.setOnClickListener {
+            val loading = LoadingDiaolog(this)
+            loading.startLoading()
+            val handler = Handler()
+            handler.postDelayed(object: Runnable{
+                override fun run(){
+                    loading.dismiss()
+                }
+            }, 5000)
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.btnCadastro.setOnClickListener {
             val intent = Intent(this, CadastroActivity::class.java)
             startActivity(intent)
         }
     }
-    fun validarLogin() {
-        val email = binding.verEmail.text.toString()
-        val senha = binding.verSenha.text.toString()
 
-        if (email == usuarioSelecionado?.email && senha == usuarioSelecionado?.senha) {
-            mainViewModel.verifyCadastro(email, senha)
-            Toast.makeText(this, "Certo!", Toast.LENGTH_LONG).show()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        } else {
-            Toast.makeText(this, "Email ou senha incorretos!", Toast.LENGTH_LONG).show()
-        }
+
+    fun criarCadastros(){
+        listCadastros.add(arrayListOf("Fabiano@gmail.com", "Fabiano"))
+        listCadastros.add(arrayListOf("al860270@gmail.com", "Qwertyui"))
 
     }
+    fun validarLogin() {
 
-    private fun carregarDados(){
-        usuarioSelecionado = mainViewModel.usuarioSelecionado
-        if (usuarioSelecionado != null){
-            binding.verEmail.setText(usuarioSelecionado?.email)
-            binding.verSenha.setText(usuarioSelecionado?.senha)
+        criarCadastros()
+
+        val email = binding.verEmail.text.toString()
+        val senha = binding.verSenha.text.toString()
+        var entrou = false
+
+        for(n in 0 until listCadastros.size){
+            if (email == listCadastros[n][0] && senha == listCadastros[n][1]) {
+                mainViewModel.verifyCadastro(email, senha)
+                Toast.makeText(this, "Sucesso ao entrar!", Toast.LENGTH_LONG).show()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                entrou = true
+            }
+        }
+        if (entrou == false){
+            Toast.makeText(this, "Email ou senha incorretos!", Toast.LENGTH_LONG).show()
         }
     }
 }
