@@ -71,12 +71,12 @@ class LoginActivity : AppCompatActivity() {
 
         criarCadastros()
 
-        val email = binding.verEmail.text.toString()
-        val senha = binding.verSenha.text.toString()
+        val email = binding.verEmail.text.toString().lowercase()
+        val senha = binding.verSenha.text.toString().lowercase()
         var entrou = false
 
         for(n in 0 until listCadastros.size){
-            if (email == listCadastros[n][0] && senha == listCadastros[n][1]) {
+            if (email == listCadastros[n][0].lowercase() && senha == listCadastros[n][1].lowercase()) {
                 mainViewModel.verifyCadastro(email, senha)
                 Toast.makeText(this, "Sucesso ao entrar!", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, MainActivity::class.java)
