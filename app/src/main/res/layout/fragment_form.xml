@@ -15,7 +15,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/custom_input"
+        android:background="#77BFEA"
         android:padding="10dp"
         tools:context=".MainActivity">
 
@@ -54,7 +54,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
             android:backgroundTint="#26AAE6 "
             android:text="@string/postar"
             android:textColor="#EDE7F6"
@@ -118,7 +117,7 @@
             android:text="Preview"
             app:layout_constraintBottom_toBottomOf="@+id/imgLink"
             app:layout_constraintEnd_toEndOf="@+id/view3"
-            app:layout_constraintTop_toTopOf="@+id/view3" />
+            app:layout_constraintTop_toTopOf="@+id/imgLink" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

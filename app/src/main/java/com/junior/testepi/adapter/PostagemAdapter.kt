@@ -1,5 +1,6 @@
 package com.junior.testepi.adapter
 
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -45,6 +46,10 @@ class PostagemAdapter(
         holder.itemView.setOnClickListener{
             postagemClickListener.onPostagemClickListener(postagem)
         }
+        holder.binding.buttonDel.setOnClickListener {
+            openDialogDel(postagem.id)
+        }
+
     }
 
     override fun getItemCount(): Int {
@@ -54,5 +59,17 @@ class PostagemAdapter(
     fun setList(list: List<Postagem>){
         listPostagem = list.sortedByDescending { it.id }
         notifyDataSetChanged()
+    }
+
+    private fun openDialogDel(id: Long){
+        AlertDialog.Builder(context)
+            .setTitle("Deletar essa postagem?")
+            .setPositiveButton("Sim"){ _,_ ->
+                mainViewModel.deletarPostagem(id)
+            }
+            .setNegativeButton("Não"){
+                    _,_ ->
+            }
+            .show()
     }
 }
