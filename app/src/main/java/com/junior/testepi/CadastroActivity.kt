@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.junior.testepi.databinding.ActivityCadastroBinding
 import com.junior.testepi.model.Cadastro
 import com.junior.testepi.model.Postagem
+import com.junior.testepi.model.Usuario
 import com.junior.testepi.util.Validator
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,6 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class CadastroActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCadastroBinding
     private lateinit var mainViewModel: MainViewModel
+    private var usuarioSelecionado: Cadastro? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCadastroBinding.inflate(layoutInflater)
@@ -85,5 +87,5 @@ class CadastroActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Verifique os campos!", Toast.LENGTH_LONG).show()
         }
-}
+    }
 }
