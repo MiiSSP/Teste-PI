@@ -56,12 +56,11 @@
             android:layout_marginTop="16dp"
             android:padding="50dp"
             android:textSize="60sp"
-            android:visibility="visible"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.7"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDescricao"
-            tools:text="IMAGEM" />
+            app:layout_constraintTop_toBottomOf="@+id/textDescricao" />
 
         <TextView
             android:id="@+id/textTema"
@@ -91,7 +90,8 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/imageView4"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
